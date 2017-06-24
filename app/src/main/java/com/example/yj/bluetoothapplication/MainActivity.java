@@ -1,4 +1,5 @@
 package com.example.yj.bluetoothapplication;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -39,18 +40,27 @@ public class MainActivity extends Activity {
 
     private ConnectedThread mConnectedThread;
 
+    private String deviceName;
+    private String deviceAddress;
+
     // SPP UUID service
-    private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    private static final UUID MY_UUID = UUID.fromString("0000110E-0000-1000-8000-00805F9B34FB");
 
     // MAC-address of Bluetooth module (you must edit this line)
-    private static String address = "20:16:03:08:64:39";
+    //private static String address = "20:16:03:08:64:39";
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        deviceName = getIntent().getStringExtra("name");
+        deviceAddress = getIntent().getStringExtra("address");
+
 
         btnLed1 = (Button) findViewById(R.id.btnLed1);
         btnLed2 = (Button) findViewById(R.id.btnLed2);
@@ -71,16 +81,13 @@ public class MainActivity extends Activity {
                             String sbprint = sb.substring(0, endOfLineIndex);
                             sb.delete(0, sb.length());
                             txtArduino.setText("Data from Arduino: " + sbprint);
-                            if(flag%4==3){
+                            if (flag % 4 == 3) {
                                 rlayout.setBackgroundColor(Color.rgb(255, 255, 255));
-                            }
-                            else if(flag%4==1){
+                            } else if (flag % 4 == 1) {
                                 rlayout.setBackgroundColor(Color.rgb(255, 0, 0));
-                            }
-                            else if(flag%4==2){
+                            } else if (flag % 4 == 2) {
                                 rlayout.setBackgroundColor(Color.rgb(0, 255, 0));
-                            }
-                            else if(flag%4==0){
+                            } else if (flag % 4 == 0) {
                                 rlayout.setBackgroundColor(Color.rgb(0, 0, 255));
                             }
                             flag++;
@@ -92,33 +99,45 @@ public class MainActivity extends Activity {
                         }
                         break;
                 }
-            };
+            }
+
+            ;
         };
 
-        btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
-        checkBTState();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
+                checkBTState();
+            }
+        }).start();
 
         btnLed1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mConnectedThread.write("1");
+                mConnectedThread.write("progeeprom4845088335052316W4");
                 //Toast.makeText(getBaseContext(), "Turn on First LED", Toast.LENGTH_SHORT).show();
             }
         });
         btnLed2.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mConnectedThread.write("2");
+                mConnectedThread.write("progeeprom4845088335052316W5");
                 //Toast.makeText(getBaseContext(), "Turn on Second LED", Toast.LENGTH_SHORT).show();
             }
         });
         btnLed3.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mConnectedThread.write("3");
+                mConnectedThread.write("progeeprom4845088335052316W1");
                 //Toast.makeText(getBaseContext(), "Turn on Third LED", Toast.LENGTH_SHORT).show();
             }
         });
         btnpado.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mConnectedThread.write("0");
+                mConnectedThread.write("progeeprom4845088335052316W10");
                 //Toast.makeText(getBaseContext(), "Turn on all LEDs", Toast.LENGTH_SHORT).show();
             }
         });
@@ -127,8 +146,10 @@ public class MainActivity extends Activity {
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
         if(Build.VERSION.SDK_INT >= 10){
             try {
-                final Method  m = device.getClass().getMethod("createInsecureRfcommSocketToServiceRecord", new Class[] { UUID.class });
-                return (BluetoothSocket) m.invoke(device, MY_UUID);
+               // final Method  m = device.getClass().getMethod("createInsecureRfcommSocketToServiceRecord", new Class[] { UUID.class });
+                BluetoothSocket socket =(BluetoothSocket) device.getClass().getMethod("createRfcommSocket", new Class[] {int.class}).invoke(device,1);
+                    return socket;
+               // return (BluetoothSocket) m.invoke(device, MY_UUID);
             } catch (Exception e) {
                 Log.e(TAG, "Could not create Insecure RFComm Connection",e);
             }
@@ -140,45 +161,62 @@ public class MainActivity extends Activity {
     public void onResume() {
         super.onResume();
 
-        Log.d(TAG, "...onResume - try connect...");
 
-        // Set up a pointer to the remote node using it's address.
-        BluetoothDevice device = btAdapter.getRemoteDevice(address);
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
 
-        // Two things are needed to make a connection:
-        //   A MAC address, which we got above.
-        //   A Service ID or UUID.  In this case we are using the
-        //     UUID for SPP.
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TAG, "...onResume - try connect...");
 
-        try {
-            btSocket = createBluetoothSocket(device);
-        } catch (IOException e) {
-            errorExit("Fatal Error", "In onResume() and socket create failed: " + e.getMessage() + ".");
-        }
+                // Set up a pointer to the remote node using it's address.
+                BluetoothDevice device = btAdapter.getRemoteDevice(deviceAddress);
 
-        // Discovery is resource intensive.  Make sure it isn't going on
-        // when you attempt to connect and pass your message.
-        btAdapter.cancelDiscovery();
+                // Two things are needed to make a connection:
+                //   A MAC address, which we got above.
+                //   A Service ID or UUID.  In this case we are using the
+                //     UUID for SPP.
 
-        // Establish the connection.  This will block until it connects.
-        Log.d(TAG, "...Connecting...");
-        try {
-            btSocket.connect();
-            Log.d(TAG, "....Connection ok...");
-        } catch (IOException e) {
-            try {
-                btSocket.close();
-            } catch (IOException e2) {
-                errorExit("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
+                try {
+                    btSocket = createBluetoothSocket(device);
+                } catch (Exception e) {
+                    errorExit("Fatal Error", "In onResume() and socket create failed: " + e.getMessage() + ".");
+                }
+
+                // Discovery is resource intensive.  Make sure it isn't going on
+                // when you attempt to connect and pass your message.
+                btAdapter.cancelDiscovery();
+
+                // Establish the connection.  This will block until it connects.
+                Log.d(TAG, "...Connecting... " + deviceAddress);
+                try {
+                    Thread.sleep(500);
+                    btSocket.connect();
+                    Log.d(TAG, "....Connection ok...");
+                } catch (Exception e) {
+                    Log.e(TAG, "Error: " + e.getLocalizedMessage());
+                    try {
+                        btSocket.close();
+                    } catch (Exception e2) {
+                        errorExit("Fatal Error", "In onResume() and unable to close socket during connection failure" + e2.getMessage() + ".");
+                    }
+                }
+
+                // Create a data stream so we can talk to server.
+                Log.d(TAG, "...Create Socket...");
+
+                mConnectedThread = new ConnectedThread(btSocket);
+                mConnectedThread.start();
             }
-        }
-
-        // Create a data stream so we can talk to server.
-        Log.d(TAG, "...Create Socket...");
-
-        mConnectedThread = new ConnectedThread(btSocket);
-        mConnectedThread.start();
+        };
+        new Thread(r).start();
     }
+
+
 
     @Override
     public void onPause() {
@@ -186,9 +224,9 @@ public class MainActivity extends Activity {
 
         Log.d(TAG, "...In onPause()...");
 
-        try     {
+        try {
             btSocket.close();
-        } catch (IOException e2) {
+        } catch (Exception e2) {
             errorExit("Fatal Error", "In onPause() and failed to close socket." + e2.getMessage() + ".");
         }
     }
@@ -196,7 +234,7 @@ public class MainActivity extends Activity {
     private void checkBTState() {
         // Check for Bluetooth support and then check to make sure it is turned on
         // Emulator doesn't support Bluetooth and will return null
-        if(btAdapter==null) {
+        if (btAdapter == null) {
             errorExit("Fatal Error", "Bluetooth not support");
         } else {
             if (btAdapter.isEnabled()) {
@@ -209,7 +247,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void errorExit(String title, String message){
+    private void errorExit(String title, String message) {
         Toast.makeText(getBaseContext(), title + " - " + message, Toast.LENGTH_LONG).show();
         finish();
     }
@@ -227,7 +265,8 @@ public class MainActivity extends Activity {
             try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+            }
 
             mmInStream = tmpIn;
             mmOutStream = tmpOut;
@@ -242,6 +281,9 @@ public class MainActivity extends Activity {
                 try {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);        // Get number of bytes and message in "buffer"
+                    String strIncom = new String(buffer, 0, bytes);
+                    Log.d(TAG, "...read bytes " + strIncom);
+
                     h.obtainMessage(RECIEVE_MESSAGE, bytes, -1, buffer).sendToTarget();     // Send to message queue Handler
                 } catch (IOException e) {
                     break;
