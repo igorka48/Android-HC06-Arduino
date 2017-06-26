@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +28,10 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
     private static final String TAG = "bluetooth2";
 
-    Button btnLed1, btnLed2, btnLed3, btnpado;
-    TextView txtArduino;
+    Button sendButton;
+    TextView logTextView;
+    EditText editText;
+
     RelativeLayout rlayout;
     Handler h;
 
@@ -62,12 +65,13 @@ public class MainActivity extends Activity {
         deviceAddress = getIntent().getStringExtra("address");
 
 
-        btnLed1 = (Button) findViewById(R.id.btnLed1);
-        btnLed2 = (Button) findViewById(R.id.btnLed2);
-        btnLed3 = (Button) findViewById(R.id.btnLed3);
-        btnpado = (Button) findViewById(R.id.btnPado);
+        sendButton = (Button) findViewById(R.id.sendButton);
+        editText = (EditText) findViewById(R.id.messageEditText);
+//        btnLed2 = (Button) findViewById(R.id.btnLed2);
+//        btnLed3 = (Button) findViewById(R.id.btnLed3);
+//        btnpado = (Button) findViewById(R.id.btnPado);
 
-        txtArduino = (TextView) findViewById(R.id.txtArduino);
+        logTextView = (TextView) findViewById(R.id.logTextView);
         rlayout = (RelativeLayout) findViewById(R.id.layout);
         h = new Handler() {
             public void handleMessage(android.os.Message msg) {
@@ -80,7 +84,7 @@ public class MainActivity extends Activity {
                         if (endOfLineIndex > 0) {
                             String sbprint = sb.substring(0, endOfLineIndex);
                             sb.delete(0, sb.length());
-                            txtArduino.setText("Data from Arduino: " + sbprint);
+                            logTextView.setText("Data from BT: " + sbprint);
                             if (flag % 4 == 3) {
                                 rlayout.setBackgroundColor(Color.rgb(255, 255, 255));
                             } else if (flag % 4 == 1) {
@@ -91,17 +95,15 @@ public class MainActivity extends Activity {
                                 rlayout.setBackgroundColor(Color.rgb(0, 0, 255));
                             }
                             flag++;
-                            btnLed1.setEnabled(true);
-                            btnLed2.setEnabled(true);
-                            btnLed3.setEnabled(true);
-                            btnpado.setEnabled(true);
+//                            btnLed1.setEnabled(true);
+//                            btnLed2.setEnabled(true);
+//                            btnLed3.setEnabled(true);
+//                            btnpado.setEnabled(true);
 
                         }
                         break;
                 }
             }
-
-            ;
         };
 
         new Thread(new Runnable() {
@@ -117,30 +119,39 @@ public class MainActivity extends Activity {
             }
         }).start();
 
-        btnLed1.setOnClickListener(new OnClickListener() {
+        sendButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mConnectedThread.write("progeeprom4845088335052316W4");
+                if(mConnectedThread == null) return;
+                mConnectedThread.write(editText.getText().toString());
+                editText.setText("");
                 //Toast.makeText(getBaseContext(), "Turn on First LED", Toast.LENGTH_SHORT).show();
             }
         });
-        btnLed2.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                mConnectedThread.write("progeeprom4845088335052316W5");
-                //Toast.makeText(getBaseContext(), "Turn on Second LED", Toast.LENGTH_SHORT).show();
-            }
-        });
-        btnLed3.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                mConnectedThread.write("progeeprom4845088335052316W1");
-                //Toast.makeText(getBaseContext(), "Turn on Third LED", Toast.LENGTH_SHORT).show();
-            }
-        });
-        btnpado.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                mConnectedThread.write("progeeprom4845088335052316W10");
-                //Toast.makeText(getBaseContext(), "Turn on all LEDs", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+//        btnLed1.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                mConnectedThread.write("progeeprom4845088335052316W4");
+//                //Toast.makeText(getBaseContext(), "Turn on First LED", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        btnLed2.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                mConnectedThread.write("progeeprom4845088335052316W5");
+//                //Toast.makeText(getBaseContext(), "Turn on Second LED", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        btnLed3.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                mConnectedThread.write("progeeprom4845088335052316W1");
+//                //Toast.makeText(getBaseContext(), "Turn on Third LED", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        btnpado.setOnClickListener(new OnClickListener() {
+//            public void onClick(View v) {
+//                mConnectedThread.write("progeeprom4845088335052316W10");
+//                //Toast.makeText(getBaseContext(), "Turn on all LEDs", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
