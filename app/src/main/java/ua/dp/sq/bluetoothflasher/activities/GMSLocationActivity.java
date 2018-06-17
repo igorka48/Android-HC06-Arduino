@@ -1,4 +1,4 @@
-package com.hc_06.yj.bluetoothapplication.ui.activities;
+package ua.dp.sq.bluetoothflasher.activities;
 
 
 import android.Manifest;

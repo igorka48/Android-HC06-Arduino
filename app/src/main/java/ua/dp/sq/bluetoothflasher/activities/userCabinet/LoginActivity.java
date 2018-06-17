@@ -1,4 +1,4 @@
-package com.hc_06.yj.bluetoothapplication.ui.activities.userCabinet;
+package ua.dp.sq.bluetoothflasher.activities.userCabinet;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,12 +14,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hc_06.yj.bluetoothapplication.R;
-import com.hc_06.yj.bluetoothapplication.ui.activities.DevicesListActivity;
+import ua.dp.sq.bluetoothflasher.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import ua.dp.sq.bluetoothflasher.activities.DevicesListActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,4 +1,4 @@
-package com.hc_06.yj.bluetoothapplication.data;
+package ua.dp.sq.bluetoothflasher.data;
 
 
 import java.io.Serializable;

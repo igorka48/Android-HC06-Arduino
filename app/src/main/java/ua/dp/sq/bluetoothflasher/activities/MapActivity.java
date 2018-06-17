@@ -1,4 +1,4 @@
-package com.hc_06.yj.bluetoothapplication.ui.activities;
+package ua.dp.sq.bluetoothflasher.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -16,8 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hc_06.yj.bluetoothapplication.R;
-import com.hc_06.yj.bluetoothapplication.data.LocationItem;
+import ua.dp.sq.bluetoothflasher.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,8 +40,7 @@ import java.util.Map;
 
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
-
-import static com.hc_06.yj.bluetoothapplication.R.id.map;
+import ua.dp.sq.bluetoothflasher.data.LocationItem;
 
 @RuntimePermissions
 public class MapActivity extends GMSLocationActivity implements MapEventsReceiver, Marker.OnMarkerClickListener  {
@@ -103,7 +101,7 @@ public class MapActivity extends GMSLocationActivity implements MapEventsReceive
 
     @NeedsPermission({ Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE })
     public void initMap() {
-        mMapView = (MapView) findViewById(map);
+        mMapView = (MapView) findViewById(R.id.map);
         mMapView.setTileSource(TileSourceFactory.MAPNIK);
 
         mRotationGestureOverlay = new RotationGestureOverlay(mMapView);

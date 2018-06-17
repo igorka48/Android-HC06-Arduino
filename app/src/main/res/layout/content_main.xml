@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/desert_storm"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.hc_06.yj.bluetoothapplication.ui.activities.DevicesListActivity"
+    tools:context="com.dp.sq.bluetoothflasher.ui.activities.DevicesListActivity"
     tools:showIn="@layout/app_bar">
 
     <Button android:id="@+id/pair_btn"

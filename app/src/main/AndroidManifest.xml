@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hc_06.yj.bluetoothapplication">
+    package="ua.dp.sq.bluetoothflasher">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.hc_06.yj.bluetoothapplication.ui.activities.DevicesListActivity"
+            android:name="ua.dp.sq.bluetoothflasher.activities.DevicesListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -27,19 +27,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hc_06.yj.bluetoothapplication.ui.activities.FavoritesActivity"
+        <activity android:name="ua.dp.sq.bluetoothflasher.activities.FavoritesActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.hc_06.yj.bluetoothapplication.ui.activities.MapActivity"
+        <activity android:name="ua.dp.sq.bluetoothflasher.activities.MapActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.hc_06.yj.bluetoothapplication.ui.activities.userCabinet.LoginActivity"
+        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.hc_06.yj.bluetoothapplication.ui.activities.userCabinet.DashBoard"
+        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.DashBoard"
             android:screenOrientation="portrait" />
-        <activity android:name="com.hc_06.yj.bluetoothapplication.ui.activities.userCabinet.ForgotPassword"
+        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.ForgotPassword"
             android:screenOrientation="portrait" />
-        <activity android:name="com.hc_06.yj.bluetoothapplication.ui.activities.userCabinet.SignUp"
+        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.SignUp"
             android:screenOrientation="portrait" />
-        <activity android:name="com.hc_06.yj.bluetoothapplication.ui.activities.SendToHCModule"
+        <activity android:name="ua.dp.sq.bluetoothflasher.activities.SendToHCModule"
             android:screenOrientation="portrait" />
     </application>
 </manifest>

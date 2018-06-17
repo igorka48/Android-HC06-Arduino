@@ -1,4 +1,4 @@
-package com.hc_06.yj.bluetoothapplication.ui.activities;
+package ua.dp.sq.bluetoothflasher.activities;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,10 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hc_06.yj.bluetoothapplication.R;
-import com.hc_06.yj.bluetoothapplication.adapters.FavViewDataAdapter;
-import com.hc_06.yj.bluetoothapplication.data.LocationItem;
-import com.hc_06.yj.bluetoothapplication.ui.activities.userCabinet.LoginActivity;
+import ua.dp.sq.bluetoothflasher.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +24,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ua.dp.sq.bluetoothflasher.activities.userCabinet.LoginActivity;
+import ua.dp.sq.bluetoothflasher.adapters.FavViewDataAdapter;
+import ua.dp.sq.bluetoothflasher.data.LocationItem;
 
 public class FavoritesActivity extends AppCompatActivity {
 
