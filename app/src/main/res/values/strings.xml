@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">SQ BlueTooth</string>
+    <string name="choose_file">Выберите файл</string>
+    <string name="pair_device_first">Свяжитесь с bluetooth устройством HC-06</string>
+    <string name="password_is_1234">Пароль по-умолчанию: 1234</string>
+    <string name="navigation_drawer_main">главная</string>
+    <string name="navigation_drawer_map">карта</string>
+    <string name="navigation_drawer_fav">избранное</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_logout">выйти</string>
+    <string name="nav_login">кабинет</string>
+    <string name="enter_email_et">Введите почту</string>
+    <string name="enter_pass_et">Введите пароль</string>
+    <string name="login_btn">логин</string>
+    <string name="firebase_logo">Firebase Logo</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="or">или</string>
+    <string name="welcome">Добро Пожаловать, </string>
+    <string name="pass_сhanged">Пароль изменен</string>
+    <string name="registation_success">Успешная регистрация</string>
+    <string name="logout">Выйти</string>
+    <string name="error">Ошибка: </string>
+    <string name="password_legth_check">Длина пароля должна быть больше 6-ти символов</string>
+    <string name="change_password_sended">Сброс пароля отправлен на Вашу почту: </string>
+    <string name="failed_to_send_password">Ошибка при отправлении пароля на почту: </string>
+    <string name="change_password">Изменить пароль</string>
+    <string name="enter_new_email">Введите новый пароль</string>
+    <string name="recovery_password">Введите вашу почту для отправления инструкций по восстановлению пароля</string>
+    <string name="back">Назад</string>
+
+    <string name="marker_order_number">Порядковый номер</string>
+    <string name="marker_title">Имя точки</string>
+    <string name="marker_group_name">Группа</string>
+    <string name="marker_navigator_number">Номер в навигаторе</string>
+    <string name="marker_status">Статус(0 или 1)</string>
+
+    <string name="marker_info_add">добавить</string>
+    <string name="remove">удалить</string>
+    <string name="no_items">нет элементов</string>
+    <string name="move_to_list_btn">на главный экран</string>
+    <string name="already_registered">Уже зарегистрированы?</string>
+    <string name="warning">внимание</string>
+    <string name="login_first">сперва зарегистрируйтесь</string>
+    <string name="empty_nav_number">Номер для записи в навигатор не должно быть пустым!</string>
+    <string name="check_dublicates">Нельзя добавить группу с дублирующимися номерами</string>
+    <string name="send_to_nav">Отправить</string>
+    <string name="add_location_warning">Сперва выберите локации!</string>
+    <string name="done">Готово</string>
+    <string name="sign_in_success">Вы успешно вошли</string>
+    <string name="empty_new_password">новый пароль не введен</string>
+    <string name="empty_field">Введены не все данные</string>
+    <string name="fail_coordinates_comparing">Координаты считаны не верно.</string>
+</resources>

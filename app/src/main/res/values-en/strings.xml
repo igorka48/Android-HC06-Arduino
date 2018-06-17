@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">SQ BlueTooth</string>
+    <string name="choose_file">Choose file</string>
+    <string name="pair_device_first">Connect to bluetooth device HC-06</string>
+    <string name="password_is_1234">Password by default: 1234</string>
+    <string name="navigation_drawer_main">main</string>
+    <string name="navigation_drawer_map">map</string>
+    <string name="navigation_drawer_fav">locations</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_logout">exit</string>
+    <string name="nav_login">login</string>
+    <string name="enter_email_et">Enter e-mail</string>
+    <string name="enter_pass_et">Enter password</string>
+    <string name="login_btn">login</string>
+    <string name="firebase_logo">Firebase Logo</string>
+    <string name="forgot_password">Lost your password?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="or">or</string>
+    <string name="welcome">Welcome, </string>
+    <string name="pass_сhanged">Password has been changed</string>
+    <string name="registation_success">Registration success</string>
+    <string name="logout">Logout</string>
+    <string name="error">Error: </string>
+    <string name="password_legth_check">Password must be at least 6 characters long</string>
+    <string name="change_password_sended">Check your e-mail for reset password instructions</string>
+    <string name="failed_to_send_password">Failed to send password on your e-mail: </string>
+    <string name="change_password">Change password</string>
+    <string name="enter_new_email">Enter new password</string>
+    <string name="recovery_password">Enter your e-mail to receive recovery password instructions</string>
+    <string name="back">Back</string>
+
+    <string name="marker_order_number">Order number</string>
+    <string name="marker_title">Name</string>
+    <string name="marker_group_name">Name of group</string>
+    <string name="marker_navigator_number">Number in navigator</string>
+    <string name="marker_status">Status(0 or 1)</string>
+
+    <string name="marker_info_add">add</string>
+    <string name="remove">delete</string>
+    <string name="no_items">no items</string>
+    <string name="move_to_list_btn">move to main screen</string>
+    <string name="already_registered">Already registered?</string>
+    <string name="warning">warning</string>
+    <string name="login_first">Sign up or login first</string>
+    <string name="empty_nav_number">Empty Navigator Number Field!</string>
+    <string name="send_to_nav">Send</string>
+
+    <string name="add_location_warning">Add locations first!</string>
+    <string name="done">All Done!</string>
+    <string name="sign_in_success">Sign in success</string>
+    <string name="empty_new_password">New password is empty</string>
+    <string name="empty_field">Empty field</string>
+    <string name="fail_coordinates_comparing">Coordinates wrong comparison.</string>
+</resources>

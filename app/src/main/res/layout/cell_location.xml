@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp">
+
+    <CheckBox android:id="@+id/checkCell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView android:id="@+id/tvCellOrderNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/checkCell"
+        android:layout_marginLeft="25dp"
+        android:paddingTop="7dp"
+        android:hint="1" />
+    <TextView android:id="@+id/tvCellTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvCellOrderNumber"
+        android:layout_marginLeft="25dp"
+        android:paddingTop="7dp"
+        android:hint="Радуга" />
+    <TextView android:id="@+id/tvCellGroupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvCellTitle"
+        android:paddingTop="7dp"
+        android:layout_marginLeft="25dp"
+        android:hint="Парк Чкалова" />
+    <TextView android:id="@+id/tvCellNaviNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvCellGroupName"
+        android:paddingTop="7dp"
+        android:layout_marginLeft="25dp"
+        android:hint="04" />
+</RelativeLayout>
