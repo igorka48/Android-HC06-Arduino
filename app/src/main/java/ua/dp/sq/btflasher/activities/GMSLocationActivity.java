@@ -1,4 +1,4 @@
-package ua.dp.sq.bluetoothflasher.activities;
+package ua.dp.sq.btflasher.activities;
 
 
 import android.Manifest;

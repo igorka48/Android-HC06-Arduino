@@ -1,4 +1,4 @@
-package ua.dp.sq.bluetoothflasher.data;
+package ua.dp.sq.btflasher.data;
 
 
 import java.io.Serializable;

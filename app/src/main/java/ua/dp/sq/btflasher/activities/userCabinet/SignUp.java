@@ -1,4 +1,4 @@
-package ua.dp.sq.bluetoothflasher.activities.userCabinet;
+package ua.dp.sq.btflasher.activities.userCabinet;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,13 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import ua.dp.sq.bluetoothflasher.R;
+import ua.dp.sq.btflasher.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import ua.dp.sq.bluetoothflasher.activities.SendToHCModule;
+import ua.dp.sq.btflasher.activities.SendToHCModule;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener {
 

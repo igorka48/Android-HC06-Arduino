@@ -1,4 +1,4 @@
-package ua.dp.sq.bluetoothflasher.activities.userCabinet;
+package ua.dp.sq.btflasher.activities.userCabinet;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,13 +12,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import ua.dp.sq.bluetoothflasher.R;
+import ua.dp.sq.btflasher.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import ua.dp.sq.bluetoothflasher.activities.DevicesListActivity;
+import ua.dp.sq.btflasher.activities.DevicesListActivity;
 
 public class DashBoard extends AppCompatActivity implements View.OnClickListener {
 

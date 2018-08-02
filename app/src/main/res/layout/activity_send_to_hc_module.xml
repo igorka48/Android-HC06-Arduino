@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/desert_storm"
-    tools:context="com.dp.sq.bluetoothflasher.ui.activities.SendToHCModule">
+    tools:context="com.dp.sq.btflasher.ui.activities.SendToHCModule">
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"

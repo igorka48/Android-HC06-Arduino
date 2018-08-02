@@ -52,4 +52,5 @@
     <string name="empty_new_password">New password is empty</string>
     <string name="empty_field">Empty field</string>
     <string name="fail_coordinates_comparing">Coordinates wrong comparison.</string>
+    <string name="login_with_google">Login with Google</string>
 </resources>

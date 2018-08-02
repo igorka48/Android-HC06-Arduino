@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ua.dp.sq.bluetoothflasher">
+    package="ua.dp.sq.btflasher">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -19,27 +19,38 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="ua.dp.sq.bluetoothflasher.activities.DevicesListActivity"
+            android:name=".activities.DevicesListActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.FavoritesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.MapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.userCabinet.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.userCabinet.DashBoard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.userCabinet.ForgotPassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.userCabinet.SignUp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SendToHCModule"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:theme="@style/AppTheme.TranslucentNavigation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ua.dp.sq.bluetoothflasher.activities.FavoritesActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="ua.dp.sq.bluetoothflasher.activities.MapActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.LoginActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.DashBoard"
-            android:screenOrientation="portrait" />
-        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.ForgotPassword"
-            android:screenOrientation="portrait" />
-        <activity android:name="ua.dp.sq.bluetoothflasher.activities.userCabinet.SignUp"
-            android:screenOrientation="portrait" />
-        <activity android:name="ua.dp.sq.bluetoothflasher.activities.SendToHCModule"
-            android:screenOrientation="portrait" />
     </application>
+
 </manifest>

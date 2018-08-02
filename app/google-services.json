@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "774957841178",
-    "firebase_url": "https://hc06-route-master.firebaseio.com",
-    "project_id": "hc06-route-master",
-    "storage_bucket": "hc06-route-master.appspot.com"
+    "project_number": "5377736339",
+    "firebase_url": "https://sq-bt-flasher.firebaseio.com",
+    "project_id": "sq-bt-flasher",
+    "storage_bucket": "sq-bt-flasher.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:774957841178:android:5a35a91bbee9f789",
+        "mobilesdk_app_id": "1:5377736339:android:69616148c57f39ab",
         "android_client_info": {
-          "package_name": "com.example.yj.bluetoothapplication"
+          "package_name": "ua.dp.sq.btflasher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "774957841178-blr2jth9q35p5844ac74nfdon9db7skm.apps.googleusercontent.com",
+          "client_id": "5377736339-9bvgs2femp8ptnl6krlnh6rlrcrfjbdm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.yj.bluetoothapplication",
-            "certificate_hash": "4188effbbfc6d42171fa795cea5119676afd7d6e"
+            "package_name": "ua.dp.sq.btflasher",
+            "certificate_hash": "ad0d61f6c35d54f19166e88d3fe61b154dac7359"
           }
         },
         {
-          "client_id": "774957841178-vgf5pg8qm35hv0kq76982srg453efleo.apps.googleusercontent.com",
+          "client_id": "5377736339-jph63u0bmrgq30stdlndle2r4l3aqq45.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDKyYVKNVaY_MbOg5xeMR8zVCilrzsOkxQ"
+          "current_key": "AIzaSyBmgwOA9Iuo6gfsDU1KPorJgMEfSjOT64Q"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "774957841178-vgf5pg8qm35hv0kq76982srg453efleo.apps.googleusercontent.com",
+              "client_id": "5377736339-jph63u0bmrgq30stdlndle2r4l3aqq45.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

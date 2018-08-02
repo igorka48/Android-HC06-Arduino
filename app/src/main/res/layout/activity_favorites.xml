@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.dp.sq.bluetoothflasher.ui.activities.FavoritesActivity">
+    tools:context="com.dp.sq.btflasher.ui.activities.FavoritesActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             android:layout_marginRight="16dp"
             android:layout_below="@+id/divider"
             app:layoutManager="LinearLayoutManager"
-            tools:context="com.dp.sq.bluetoothflasher.ui.activities.FavoritesActivity" />
+            tools:context="com.dp.sq.btflasher.ui.activities.FavoritesActivity" />
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

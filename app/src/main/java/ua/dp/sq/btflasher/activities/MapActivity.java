@@ -1,4 +1,4 @@
-package ua.dp.sq.bluetoothflasher.activities;
+package ua.dp.sq.btflasher.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import ua.dp.sq.bluetoothflasher.R;
+import ua.dp.sq.btflasher.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,7 +40,7 @@ import java.util.Map;
 
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
-import ua.dp.sq.bluetoothflasher.data.LocationItem;
+import ua.dp.sq.btflasher.data.LocationItem;
 
 @RuntimePermissions
 public class MapActivity extends GMSLocationActivity implements MapEventsReceiver, Marker.OnMarkerClickListener  {

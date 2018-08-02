@@ -1,4 +1,4 @@
-package ua.dp.sq.bluetoothflasher.adapters;
+package ua.dp.sq.btflasher.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ua.dp.sq.bluetoothflasher.R;
-import ua.dp.sq.bluetoothflasher.data.LocationItem;
+import ua.dp.sq.btflasher.R;
+import ua.dp.sq.btflasher.data.LocationItem;
 
 public class FavViewDataAdapter extends
         RecyclerView.Adapter<FavViewDataAdapter.ViewHolder> {

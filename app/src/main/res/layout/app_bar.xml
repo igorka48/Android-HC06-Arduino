@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.dp.sq.bluetoothflasher.ui.activities.DevicesListActivity">
+    tools:context="com.dp.sq.btflasher.ui.activities.DevicesListActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
