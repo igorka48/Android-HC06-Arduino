@@ -36,6 +36,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login2);
         mAuth = FirebaseAuth.getInstance();
 
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            updateUI(FirebaseAuth.getInstance().getCurrentUser());
+        }
+
+
 
         String defaultClientId = getString(R.string.default_web_client_id);
 
@@ -44,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
 
         SignInButton loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> signIn());
