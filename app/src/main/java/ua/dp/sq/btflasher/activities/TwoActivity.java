@@ -4,6 +4,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -101,24 +102,20 @@ public class TwoActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_map) {
+
+
             // Handle the camera action
-            main.setText("Import");
-        } else if (id == R.id.nav_gallery) {
-            main.setText("Gallery");
+            main.setText("Создать игру(Карта)");
+            Log.i("Нажата кнопка","Создать игру(Карта)");
 
+        } else if (id == R.id.nav_featured) {
+            main.setText("Избранные игры");
+            Log.i("Нажата кнопка","Избранные игры");
 
-        } else if (id == R.id.nav_slideshow) {
-            main.setText("Slideshow");
-
-
-        } else if (id == R.id.nav_manage) {
-            main.setText("Tools");
-
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_firmware) {
+            main.setText("Прошивка");
+            Log.i("Нажата кнопка","Прошивка ");
 
         }
 
