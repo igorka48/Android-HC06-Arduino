@@ -108,6 +108,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
-        startActivity(new Intent(this, DevicesListActivity.class));
+        startActivity(new Intent(this, NavigationActivity.class));
     }
 }
