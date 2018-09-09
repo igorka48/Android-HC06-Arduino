@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 import ua.dp.sq.btflasher.R;
+import ua.dp.sq.btflasher.fragments.DeviceListFragment;
 import ua.dp.sq.btflasher.fragments.MapFragment;
 
 @RuntimePermissions
@@ -123,6 +124,9 @@ public class NavigationActivity extends AppCompatActivity
     }
 
     private void flashMenuAction() {
-
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+                .beginTransaction();
+        fragmentTransaction.replace(R.id.contentView, DeviceListFragment.newInstance(null));
+        fragmentTransaction.commit();
     }
 }
