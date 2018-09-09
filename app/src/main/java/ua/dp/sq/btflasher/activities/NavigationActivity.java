@@ -1,12 +1,10 @@
 package ua.dp.sq.btflasher.activities;
 
-import android.app.FragmentTransaction;
+import android.Manifest;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
-import android.view.View;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,17 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import java.text.MessageFormat;
-
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.RuntimePermissions;
 import ua.dp.sq.btflasher.R;
+import ua.dp.sq.btflasher.fragments.MapFragment;
 
-
-public class TwoActivity extends AppCompatActivity
+@RuntimePermissions
+public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
-
-    TextView main;
 
 
     @Override
@@ -34,19 +30,6 @@ public class TwoActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        main=findViewById(R.id.txt_main);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -58,7 +41,16 @@ public class TwoActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        navigationView.setCheckedItem(R.id.nav_map);
+        NavigationActivityPermissionsDispatcher.mapMenuActionWithCheck(this);
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // NOTE: delegate the permission handling to generated method
+        NavigationActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
     }
 
     @Override
@@ -98,33 +90,32 @@ public class TwoActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
 
-
-
         int id = item.getItemId();
 
         if (id == R.id.nav_map) {
-
-
-            // Handle the camera action
-            main.setText("Создать игру(Карта)");
-            Log.i("Нажата кнопка","Создать игру(Карта)");
-
+            NavigationActivityPermissionsDispatcher.mapMenuActionWithCheck(this);
         } else if (id == R.id.nav_featured) {
-            main.setText("Избранные игры");
-            Log.i("Нажата кнопка","Избранные игры");
-
+            favoritesMenuAction();
         } else if (id == R.id.nav_firmware) {
-            main.setText("Прошивка");
-            Log.i("Нажата кнопка","Прошивка ");
-
+            flashMenuAction();
         }
-
-
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @NeedsPermission({ Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE })
+    public void mapMenuAction(){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+                .beginTransaction();
+        fragmentTransaction.replace(R.id.contentView, new MapFragment());
+        fragmentTransaction.commit();
+    }
+    private void favoritesMenuAction(){
+
+    }
+    private void flashMenuAction(){
+
     }
 }

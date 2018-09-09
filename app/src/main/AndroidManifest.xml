@@ -18,24 +18,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
-
-
-
-
-
-
         <activity
             android:name=".activities.DevicesListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.FavoritesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.MapActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.userCabinet.LoginActivity"
@@ -52,23 +40,12 @@
         <activity
             android:name=".activities.SendToHCModule"
             android:screenOrientation="portrait" />
-
-
-
-
-
-
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.TranslucentNavigation">
-
         </activity>
-
-
-
-
         <activity
-            android:name=".activities.TwoActivity"
+            android:name=".activities.NavigationActivity"
             android:label="@string/title_activity_two"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
