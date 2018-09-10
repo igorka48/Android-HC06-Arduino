@@ -16,12 +16,13 @@ import android.view.MenuItem;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 import ua.dp.sq.btflasher.R;
+import ua.dp.sq.btflasher.fragments.DeviceListFragment;
 import ua.dp.sq.btflasher.fragments.MapFragment;
 import ua.dp.sq.btflasher.fragments.FavoritesFragment;
 
 @RuntimePermissions
 public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
 
     @Override
@@ -43,7 +44,7 @@ public class NavigationActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         navigationView.setCheckedItem(R.id.nav_map);
-        NavigationActivityPermissionsDispatcher.mapMenuActionWithCheck(this);
+        NavigationActivityPermissionsDispatcher.showMapWithCheck(this);
 
     }
 
@@ -94,7 +95,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_map) {
-            NavigationActivityPermissionsDispatcher.mapMenuActionWithCheck(this);
+            mapMenuAction();
         } else if (id == R.id.nav_featured) {
             favoritesMenuAction();
         } else if (id == R.id.nav_firmware) {
@@ -106,17 +107,32 @@ public class NavigationActivity extends AppCompatActivity
         return true;
     }
 
-    @NeedsPermission({ Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE })
-    public void mapMenuAction(){
+    @NeedsPermission({Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE})
+    public void showMap() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager()
                 .beginTransaction();
         fragmentTransaction.replace(R.id.contentView, new MapFragment());
         fragmentTransaction.commit();
     }
-    private void favoritesMenuAction(){
+
+
+    public void mapMenuAction() {
+        NavigationActivityPermissionsDispatcher.showMapWithCheck(this);
+    }
+
+    private void favoritesMenuAction() {
+        FragmentTransaction fragmentTransaction=getSupportFragmentManager()
+                .beginTransaction();
+        fragmentTransaction.replace(R.id.contentView,new FavoritesFragment());
+        fragmentTransaction.commit();
 
     }
-    private void flashMenuAction(){
 
+    private void flashMenuAction() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+                .beginTransaction();
+        fragmentTransaction.replace(R.id.contentView, DeviceListFragment.newInstance(null));
+        fragmentTransaction.commit();
     }
+
 }
