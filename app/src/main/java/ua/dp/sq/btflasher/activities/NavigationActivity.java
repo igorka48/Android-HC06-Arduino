@@ -17,6 +17,7 @@ import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.RuntimePermissions;
 import ua.dp.sq.btflasher.R;
 import ua.dp.sq.btflasher.fragments.MapFragment;
+import ua.dp.sq.btflasher.fragments.FavoritesFragment;
 
 @RuntimePermissions
 public class NavigationActivity extends AppCompatActivity

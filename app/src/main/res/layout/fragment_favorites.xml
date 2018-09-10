@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.FavoritesFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -86,7 +87,8 @@
             android:visibility="gone"
             android:text="@string/move_to_list_btn"/>
     </RelativeLayout>
-    <Button android:id="@+id/sendCoordinates"
+    <Button
+        android:id="@+id/sendCoordinates"
         android:layout_below="@id/favList"
         android:layout_centerHorizontal="true"
         android:text="Подтвердить координаты"
