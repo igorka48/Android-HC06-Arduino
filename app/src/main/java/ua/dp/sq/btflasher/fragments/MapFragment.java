@@ -60,7 +60,12 @@ public class MapFragment extends GMSLocationFragment implements MapEventsReceive
     public MapFragment() {
         // Required empty public constructor
     }
-
+public  static MapFragment newInstance(){
+        Bundle bundle=new Bundle();
+        MapFragment fragment=new MapFragment();
+        fragment.setArguments(bundle);
+        return  fragment;
+}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

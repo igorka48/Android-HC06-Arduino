@@ -85,7 +85,7 @@
                 android:visibility="gone"
                 android:text="@string/move_to_list_btn"/>
         </RelativeLayout>
-        <Button android:id="@+id/sendCoordinates"
+        <Button android:id="@+id/sendCoordinatess"
             android:layout_below="@id/favList"
             android:layout_centerHorizontal="true"
             android:text="Подтвердить координаты"

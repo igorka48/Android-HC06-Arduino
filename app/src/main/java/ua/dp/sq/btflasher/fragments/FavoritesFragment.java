@@ -39,7 +39,7 @@ import ua.dp.sq.btflasher.data.LocationItem;
 
 public class FavoritesFragment extends Fragment {
 
-     Button sendCoordinates;
+    Button sendCoordinates;
 
     private RecyclerView recyclerView;
     private TextView emptyView_tv;
@@ -53,8 +53,14 @@ public class FavoritesFragment extends Fragment {
     private DatabaseReference databaseReference;
     private ArrayList<LocationItem> locationItems;
     private ProgressBar progressBar;
-    public FavoritesFragment() {
 
+public FavoritesFragment(){}
+public static FavoritesFragment newInstance()
+    {
+Bundle bundle=new Bundle();
+FavoritesFragment fragment=new FavoritesFragment();
+fragment.setArguments(bundle);
+return fragment;
     }
 
 
@@ -63,7 +69,6 @@ public class FavoritesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_favorites, container, false);
 
@@ -72,15 +77,15 @@ public class FavoritesFragment extends Fragment {
 
         locationItems = new ArrayList<>();
 
-        progressBar=(ProgressBar)getView().findViewById(R.id.progressBar);
-        sendValues = (Button) getView().findViewById(R.id.sendCoordinates);
-        recyclerView = (RecyclerView) getView().findViewById(R.id.favList);
-        emptyView_tv = (TextView) getView().findViewById(R.id.empty_view_tv);
-        emptyView_btn = (Button)getView(). findViewById(R.id.empty_view_btn);
-
+        progressBar=(ProgressBar)view.findViewById(R.id.progressBar);
+        sendValues = (Button) view.findViewById(R.id.sendCoordinates);
+        recyclerView = (RecyclerView) view.findViewById(R.id.favList);
+        emptyView_tv = (TextView) view.findViewById(R.id.empty_view_tv);
+        emptyView_btn = (Button)view. findViewById(R.id.empty_view_btn);
+        sendCoordinates=(Button) view.findViewById(R.id.sendCoordinates);
         getFavorites();
 
-        sendCoordinates=(Button) getView().findViewById(R.id.sendCoordinates);
+
         sendCoordinates.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -112,8 +117,8 @@ public class FavoritesFragment extends Fragment {
                     for (int i = 0; i < checkDublicates.size(); i++) {
                         for (int j = i + 1; j < checkDublicates.size(); j++) {
                             if(checkDublicates.get(i) == checkDublicates.get(j)) {
-                               // Toast.makeText(FavoritesFragment.this, R.string.check_dublicates,
-                                      //  Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(FavoritesFragment.this, R.string.check_dublicates,
+                                //  Toast.LENGTH_SHORT).show();
                                 Toast.makeText(FavoritesFragment.super.getContext(),R.string.check_dublicates,
                                         Toast.LENGTH_SHORT).show();
                                 return;
@@ -125,15 +130,8 @@ public class FavoritesFragment extends Fragment {
                     intent.putStringArrayListExtra("list", values);
                     startActivity(intent);
                 }
-
             }
         });
-
-
-
-
-
-
 
         return view;
     }

@@ -123,7 +123,7 @@ public class NavigationActivity extends AppCompatActivity
     private void favoritesMenuAction() {
         FragmentTransaction fragmentTransaction=getSupportFragmentManager()
                 .beginTransaction();
-        fragmentTransaction.replace(R.id.contentView,new FavoritesFragment());
+        fragmentTransaction.replace(R.id.sendCoordinates,new FavoritesFragment());
         fragmentTransaction.commit();
 
     }
