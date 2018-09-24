@@ -63,8 +63,9 @@ public class DeviceListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            ar1 = getArguments().getStringArrayList(ARG_LIST);
+        Bundle args = getArguments();
+        if (args != null && args.containsKey(ARG_LIST)) {
+            ar1 = args.getStringArrayList(ARG_LIST);
         } else {
             ar1 = new ArrayList<>();
         }
